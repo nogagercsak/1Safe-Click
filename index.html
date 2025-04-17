@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="assets/logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 1Safe Click - Cybersecurity Awareness for All</title>
+    <style>
+        :root {
+            --primary-color: #2a4b8d;
+            --secondary-color: #3ccfcf;
+            --accent-color: #0f0f0f;
+            --dark-color: #1a1a2e;
+            --light-color: #f5f5f5;
+            --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light-color);
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+                    .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .logo img {
+            height: 40px; /* Adjust this value to make your logo smaller or larger */
+            width: auto; /* Maintains aspect ratio */
+            margin-right: 10px;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #2ab7b7;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 0.5rem auto;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .about-text p {
+            margin-bottom: 2rem;
+        }
+        
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+            background-color: var(--light-color);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            background-color: var(--primary-color);
+            color: white;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+        }
+        
+        /* Resources Section */
+        .resources {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .resources-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--light-color);
+            border: none;
+            cursor: pointer;
+            margin: 0 5px 10px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .resource-card {
+            background-color: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .resource-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        /* Join Us Section */
+        .join-us {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .join-us-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .join-us h2 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .join-us p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background-color: var(--light-color);
+        }
+        
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-form {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .contact-info h3, .contact-form h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .info-item {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .info-icon {
+            margin-right: 15px;
+            color: var(--primary-color);
+            min-width: 20px;
+        }
+        
+        form {
+            display: grid;
+            grid-gap: 1rem;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        button[type="submit"] {
+            justify-self: start;
+            padding: 0.8rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #1e3a70;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-logo h2 {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-logo p {
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links {
+            flex: 1;
+            min-width: 180px;
+        }
+        
+        .footer-links h3 {
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-links h3::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+            margin-top: 0.5rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content, .contact-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                order: -1;
+                margin-bottom: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="assets/logo.png" alt="1Safe Click">
+                    <span>1Safe Click</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="#join-us" class="btn">Join Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Empowering Digital Safety for Everyone</h1>
+                <p>1Safe Click is a student-led initiative dedicated to raising cybersecurity awareness across all age groups and demographics. Together, we can build a safer digital world.</p>
+                <a href="#about" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Our Mission</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>1Safe Click was founded by high school students with a passion for technology and a commitment to making the digital world safer for everyone. We recognized that cybersecurity education is often targeted at professionals or tech-savvy individuals, leaving many vulnerable to online threats.</p>
+                    
+                    <p style="margin-top: 2rem;">Our mission is simple: to make cybersecurity knowledge accessible to people of all ages and backgrounds. Whether you're a senior citizen learning to use email, a parent trying to keep your children safe online, or a small business owner protecting customer data, we provide resources tailored to your needs.</p>
+                    
+                    <p style="margin-top: 2rem;">Through workshops, educational materials, and community outreach, we're building a network of cyber-aware citizens who can protect themselves and help others stay safe in our increasingly connected world.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">What We Do</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎓</div>
+                    <div class="service-content">
+                        <h3>Education Programs</h3>
+                        <p>Age-appropriate cybersecurity workshops for students, adults, and seniors. Our curriculum is designed to be engaging and accessible, regardless of technical background.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <div class="service-content">
+                        <h3>Digital Safety Training</h3>
+                        <p>Hands-on training sessions focused on practical skills like creating strong passwords, recognizing phishing attempts, and securing personal devices and accounts.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <div class="service-content">
+                        <h3>Community Outreach</h3>
+                        <p>Partnerships with schools, libraries, senior centers, and community organizations to bring cybersecurity awareness to underserved populations.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <div class="service-content">
+                        <h3>Resource Development</h3>
+                        <p>Creation and distribution of free cybersecurity guides, infographics, videos, and tools tailored to different age groups and technical proficiency levels.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👥</div>
+                    <div class="service-content">
+                        <h3>Peer Mentorship</h3>
+                        <p>Training programs for students who want to become cybersecurity advocates in their schools and communities, creating a network of knowledgeable peers.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔒</div>
+                    <div class="service-content">
+                        <h3>Security Consultations</h3>
+                        <p>Basic security assessments and recommendations for individuals and small organizations looking to improve their digital safety practices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="resources">
+        <div class="container">
+            <h2 class="section-title">Cybersecurity Resources</h2>
+            <div class="resources-tabs">
+                <button class="tab-btn active" data-tab="kids">For Kids</button>
+                <button class="tab-btn" data-tab="teens">For Teens</button>
+                <button class="tab-btn" data-tab="adults">For Adults</button>
+                <button class="tab-btn" data-tab="seniors">For Seniors</button>
+                <button class="tab-btn" data-tab="educators">For Educators</button>
+            </div>
+            
+            <div id="kids-tab" class="tab-content active">
+                <div class="resource-card">
+                    <h3>Internet Safety Adventures</h3>
+                    <p>Fun, interactive games and activities that teach children about online safety in an engaging way. Perfect for ages 7-12.</p>
+                </div>
+                <div class="resource-card">
+                    <h3>Family Internet Safety Agreement</h3>
+                    <p>A customizable agreement that families can use to set boundaries and expectations for safe internet use.</p>
+                </div>
+            </div>
+            
+            <div id="teens-tab" class="tab-content">
+                <div class="resource-card">
+                    <h3>Social Media Safety Guide</h3>
+                    <p>Tips for protecting privacy, managing digital reputation, and avoiding common pitfalls on social platforms.</p>
+                </div>
+                <div class="resource-card">
+                    <h3>Password Management Workshop</h3>
+                    <p>Interactive tutorial on creating and managing strong, unique passwords for multiple accounts.</p>
+                </div>
+            </div>
+            
+            <div id="adults-tab" class="tab-content">
+                <div class="resource-card">
+                    <h3>Home Network Security Guide</h3>
+                    <p>Step-by-step instructions for securing your home Wi-Fi network and connected devices.</p>
+                </div>
+                <div class="resource-card">
+                    <h3>Identity Theft Protection Toolkit</h3>
+                    <p>Resources for monitoring your digital identity, detecting potential breaches, and responding to identity theft.</p>
+                </div>
+                <div class="resource-card">
+                    <h3>Workplace Security Best Practices</h3>
+                    <p>Guidance for maintaining security while working remotely or managing sensitive data in professional contexts.</p>
+                </div>
+            </div>
+            
+            <div id="seniors-tab" class="tab-content">
+                <div class="resource-card">
+                    <h3>Digital Basics for Seniors</h3>
+                    <p>Foundational technology concepts explained in clear, non-technical language with large-print guides.</p>
+                </div>
+                <div class="resource-card">
+                    <h3>Scam Recognition Training</h3>
+                    <p>Interactive examples of common scams targeting seniors, with tips for identifying and avoiding them.</p>
+                </div>
+                <div class="resource-card">
+                    <h3>Simplified Security Checklist</h3>
+                    <p>Easy-to-follow security steps for email, banking, and online shopping, designed for seniors with limited technical experience.</p>
+                </div>
+            </div>
+            
+            <div id="educators-tab" class="tab-content">
+                <div class="resource-card">
+                    <h3>Cybersecurity Curriculum Modules</h3>
+                    <p>Ready-to-use lesson plans, activities, and materials for teaching cybersecurity concepts in K-12 classrooms.</p>
+                </div>
+                <div class="resource-card">
+                    <h3>Digital Safety Assembly Kit</h3>
+                    <p>Presentation materials, talking points, and interactive elements for school-wide cybersecurity awareness events.</p>
+                </div>
+                <div class="resource-card">
+                    <h3>Parent-Teacher Cybersecurity Guide</h3>
+                    <p>Resources for facilitating conversations between educators and parents about students' digital safety.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Us Section -->
+    <section id="join-us" class="join-us">
+        <div class="container">
+            <div class="join-us-content">
+                <h2>Join the 1Safe Click Movement</h2>
+                <p>Whether you're a student passionate about technology, an educator looking to bring cybersecurity education to your classroom, or a community member wanting to learn more, there's a place for you in our alliance.</p>
+                <a href="#contact" class="btn">Get Involved</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="text" placeholder="Subject">
+                        <textarea placeholder="Your Message" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2><img src="assets/logo.png" alt="1Safe Click" style="height: 30px; width: auto; margin-right: 10px;"> 1Safe Click</h2>
+                    <p>Empowering everyone with the knowledge and tools to stay safe in the digital world.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">t</a>
+                        <a href="#" class="social-icon">in</a>
+                        <a href="#" class="social-icon">ig</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#resources">Resources</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Downloads</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Community Forum</a></li>
+                        <li><a href="#">Report an Issue</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 1Safe Click. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality for resources section
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                btn.classList.add('active');
+                document.getElementById(`${btn.dataset.tab}-tab`).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
